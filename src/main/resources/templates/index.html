@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search your giphy</title>
+</head>
+<body>
+    <h1>
+        Search your giphy
+    </h1>
+    <form action ="/search" method ="get" >
+        Name:
+        <input type="text" name="name"><br>
+        Limit :
+        <input type="text" name="limit"><br>
+        Rating:
+        <select name="rating">
+            <option value="g">g</option>
+            <option value="pg">pg</option>
+            <option value="pg-13">pg-13</option>
+            <option value="r">r</option>
+          </select>
+        <br>
+        <input type ="submit" value="Submit">
+      </form>
+    
+</body>
+</html>
