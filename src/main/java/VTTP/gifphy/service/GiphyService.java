@@ -16,6 +16,7 @@ import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonObject;
 import jakarta.json.JsonReader;
+import jakarta.json.JsonValue;
 
 @Service
 public class GiphyService {
@@ -23,10 +24,13 @@ public class GiphyService {
     @Value("${giphy.api.key}")
     private String giphyKey;
 
-
     //api_key=SwAeiDlPGbKxkbiJUhx8Mqx1VEg2yJyb (export = "SwAeiDlPGbKxkbiJUhx8Mqx1VEg2yJyb")
 
     public List<String> getGifs (String name, Integer limit, String rating){
+
+        if (limit ==null){
+            limit = 10;
+        }
 
         String url = "https://api.giphy.com/v1/gifs/search?api_key=" + giphyKey + "&q="
         + name + "&limit=" + limit + "&offset=0&rating=" + rating + "&lang=en";
@@ -59,6 +63,8 @@ public class GiphyService {
         // rawResult.add(imageUrl);
 
         JsonObject temp = resultArray.getJsonObject(i);
+
+       
         JsonObject temp1= (JsonObject) temp.get ("images");
         JsonObject temp2 = (JsonObject) temp1.get("fixed_width");
         imageUrl = temp2.getString("url");
@@ -69,5 +75,16 @@ public class GiphyService {
 
     }
 
+    public List<String> getGifs (String name){
+        return getGifs(name, 10, "pg");
+    }
+
+    public List<String> getGifs(String name, Integer limit){
+        return getGifs(name, limit, "pg");
+
+    }
+    public List<String> getGifs (String name, String rating){
+            return getGifs(name, 10, rating);
+    }
 
 }

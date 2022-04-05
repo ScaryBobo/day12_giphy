@@ -24,7 +24,6 @@ public class SearchController {
     private GiphyService gifSvc;
     @GetMapping(path="/search")
 
-    
     public String getSearchResult(@RequestParam (name="name") String name,
     @RequestParam (name="limit") Integer limit, 
     @RequestParam (name="rating") String rating, Model model){
