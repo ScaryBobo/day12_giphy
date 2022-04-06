@@ -19,3 +19,11 @@ jobs:
         maven-version: '3.8.4'
     - name: Run test
       run: mvn clean verify 
+    - name: Generate Jacoco badge
+      uses: cicirello/jacoco-badge-generator@v2
+    - name: Commit and push the badge (if it changed)
+      uses: EndBug/add-and-commit@v7
+      with:
+        default_author: github_actions
+        message: 'commit badge'
+        add: '*.svg'
