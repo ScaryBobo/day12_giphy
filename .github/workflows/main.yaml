@@ -41,7 +41,7 @@ jobs:
         secret_key: ${{secrets.secret_key}}
         space_name: scarybobo
         space_region: sgp1
-        source: .github/badges/jacoco.svg
+        source: target/site/jacoco
         out_dir: coverage/${{github.event.repository.name}}/reports
         permission: public-read
 
