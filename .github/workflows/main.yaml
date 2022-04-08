@@ -25,7 +25,7 @@ jobs:
         generate-coverage-badge: true
         jacoco-csv-file: target/site/jacoco/jacoco.csv
     - name: Upload coverage badge to DigitalOcean spaces
-      uses: Betahuhn/do-spaces-actions@v2
+      uses: Betahuhn/do-spaces-action@v2
       with: 
         access_key: ${{secrets.access_key}}
         secret_key: ${{secrets.secret_key}}
@@ -35,7 +35,7 @@ jobs:
         out_dir: coverage/${{github.event.repository.name}}
         permission: public-read
     - name: Upload coverage report
-      uses: Betahuhn/do-spaces-actions@v2
+      uses: Betahuhn/do-spaces-action@v2
       with: 
         access_key: ${{secrets.access_key}}
         secret_key: ${{secrets.secret_key}}
